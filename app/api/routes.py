@@ -1,11 +1,9 @@
 from fastapi import APIRouter
-import math
-import time
+from app.data import generate_data
 
 router = APIRouter(prefix="api", tags=["api"])
 
 @router.get("/wave")
-def wave():
-    x = list(range(100))
-    y = [math.sin(i+time.time()) for i in x]
-    return {"x": x, "y": y}
+def data():
+    return generate_data()
+ 
